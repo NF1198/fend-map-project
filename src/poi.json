@@ -1,0 +1,77 @@
+[{
+    "id": "museum-of-geology-and-meteoritics",
+    "title": "Museum of Geology and Meteoritics",
+    "keywords": ["museum", "geology", "meteor", "space", "science", "unm"],
+    "queryStrings": {"default" : "Museum of Geology and Meteoritics"},
+    "loc": {
+        "lat": 35.083114,
+        "lon": -106.622702
+    },
+    "description": "View meteorites from around the world it is amazing."
+}, {
+    "id": "tamarind-institue",
+    "title": "Tamarind Institue",
+    "keywords": ["art", "studio", "gallery", "tamarind", "lithography", "science", "unm"],
+    "queryStrings": {"default" : "tamarind institute",
+                      "Wikipedia" : "Tamarind_Institute"},
+    "loc": {
+        "lat": 35.080604,
+        "lon": -106.618024
+    },
+    "description": "lithography studio and workshop"
+}, {
+    "id": "national-hispanic-culture-center",
+    "title": "National Hispanic Cultural Center",
+    "keywords": ["community", "center", "hispanic", "culture"],
+    "queryStrings": {"default" : "national hispanic cultural center",
+                     "Wikipedia" : "National_Hispanic_Cultural_Center"},
+    "loc": {
+        "lat": 35.068604,
+        "lon": -106.655578
+    },
+    "description": "Promotion, and advancement of Hispanic culture, arts, and humanities"
+}, {
+    "id": "alvarado-transportation-center",
+    "title": "Alvarado Transportation Center",
+    "keywords": ["transportation", "bus", "rail runner", "transit"],
+    "queryStrings": {"default" : "alvarado transportation center",
+                      "Wikipedia" : "Alvarado_Transportation_Center"},
+    "loc": {
+        "lat": 35.082965,
+        "lon": -106.647806
+    },
+    "description": "ABQ Ride, Amtrak Southwest Chief, Rail Runner Express and Greyound Bus"
+}, {
+    "id": "rio-grande-zoo",
+    "title": "Rio Grande Zoo",
+    "keywords": ["zoo", "science"],
+    "queryStrings": {"default" : "rio grande zoo",
+                     "Wikipedia" : "Rio_Grande_Zoo"},
+    "loc": {
+        "lat": 35.077903,
+        "lon": -106.6626886
+    },
+    "description": "Riverside spot with animals & a train"
+}, {
+    "id": "botanical-gardens",
+    "title": "ABQ BioPark - Aquarium and Botanical Gardens",
+    "keywords": ["biopark", "aquarium", "botanical", "garden", "science"],
+    "queryStrings": {"default" : "albuquerque aquarium and botanical garden",
+                      "Wikipedia" : "Albuquerque_Biological_Park"},
+    "loc": {
+        "lat": 35.095777,
+        "lon": -106.685348
+    },
+    "description": "Large species like sharks, stingrays, seahorses, and jellyfish can be seen."
+}, {
+    "id": "kimo-theater",
+    "title": "KiMo Theater",
+    "keywords": ["kimo", "theater", "landmark", "entertainment"],
+    "queryStrings": {"default" : "kimo theater albuqerque",
+                      "Wikipedia" : "KiMo_Theater"},
+    "loc": {
+        "lat": 35.084753,
+        "lon": -106.652478
+    },
+    "description": "One of the city's best-known landmarks."
+}]
