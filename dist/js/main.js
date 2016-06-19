@@ -36,6 +36,9 @@ var app = (function(ko, google, map) {
 
     // Returns an InfoWindow for the specified POI, creating one if necessary
     function getInfoWindowFor(poi) {
+        if (!poi) {
+            return;
+        }
         setupPoi3rdPartyContentContainer(poi);
         var id = poi.id;
         var infoWindow;
@@ -211,11 +214,17 @@ var app = (function(ko, google, map) {
             }
             var newSelection = (poi.id !== self.activeId()) ? poi : null;
             var newSelectionID = (newSelection) ? newSelection.id : null;
+            var oldActiveId = self.activeId();
+            var oldActivePOI = self.getPOIbyID(oldActiveId);
             self.activeId(newSelectionID);
             animateMarker(newSelectionID);
             if (newSelection) {
                 centerMap(poi.loc);
                 var marker = getMapMarkerFor(poi);
+                var oldActiveInfoWindow = getInfoWindowFor(oldActivePOI);
+                if (oldActiveInfoWindow) {
+                  oldActiveInfoWindow.close();
+                }
                 getInfoWindowFor(poi).open(map, marker);
             }
             if (!window.matchMedia("(min-width: 630px)").matches) {
