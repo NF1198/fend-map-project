@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/menu.css" rel="stylesheet" />
+    <title>Albuquerque Zone</title>
+</head>
+
+<body>
+    <div id="top-nav-container">
+        <h1 id="logo">
+            <em>Explore</em> Albuquerque
+        </h1>
+        <div id="top-nav">
+            <input type="text" name="filter" placeholder="Filter keywords..." data-bind="click: openNavArea, textInput: filterQuery">
+        </div>
+        <div id="symbol"></div>
+    </div>
+    <ul class="navigation nav-container" data-bind="foreach: filteredPOIlist">
+        <li class="nav-item" data-bind="attr: {title: keywords.join(', ')}, click: $parent.selectMapMarker, css: {'current-selection' : $parent.isSelected($data)}">
+            <a href="#"><span data-bind="text: title"></span></a>
+            <p class="nav-item-blurb" data-bind="text: description"></p>
+            <p class="nav-item-blurb"><span class="orange-text">keywords: </span><span class="orange-text" data-bind="text: keywords.join(', ')"></span></p>
+        </li>
+    </ul>
+    <input type="checkbox" id="nav-trigger" class="nav-trigger" list="keyword-list" />
+    <label for="nav-trigger"></label>
+    <div class="site-wrap">
+        <div id="map"></div>
+    </div>
+    <script>
+        var map;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: 35.0830694,
+                    lng: -106.632821
+                },
+                zoom: 14
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAxHuZPgNX7EEdNhtiAzzgsWbYmjs4H6k&callback=initMap"></script>
+    <script defer src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+    <script defer id="content-providers-js" src="js/content-provider.js"></script>
+    <script defer id="wikipedia-provider-js" src="js/wikipedia-provider.js"></script>
+    <script defer id="main-js" src="js/main.js"></script>
+</body>
+
+</html>
