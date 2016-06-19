@@ -184,7 +184,7 @@ var app = (function(ko, google, map) {
         };
 
         // load JSON data asynchronously
-        $.getJSON("/poi.json", function(json) {
+        $.getJSON("poi.json", function(json) {
             self.poiList(json);
         });
 
