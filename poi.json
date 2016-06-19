@@ -2,7 +2,7 @@
     "id": "museum-of-geology-and-meteoritics",
     "title": "Museum of Geology and Meteoritics",
     "keywords": ["museum", "geology", "meteor", "space", "science", "unm"],
-    "queryStrings": {"default" : "Museum of Geology and Meteoritics"},
+    "queryStrings": {"Place" : "Museum of Geology and Meteoritics"},
     "loc": {
         "lat": 35.083114,
         "lon": -106.622702
@@ -12,7 +12,7 @@
     "id": "tamarind-institue",
     "title": "Tamarind Institue",
     "keywords": ["art", "studio", "gallery", "tamarind", "lithography", "science", "unm"],
-    "queryStrings": {"default" : "tamarind institute",
+    "queryStrings": {"Place" : "Tamarind Institue",
                       "Wikipedia" : "Tamarind_Institute"},
     "loc": {
         "lat": 35.080604,
@@ -23,7 +23,7 @@
     "id": "national-hispanic-culture-center",
     "title": "National Hispanic Cultural Center",
     "keywords": ["community", "center", "hispanic", "culture"],
-    "queryStrings": {"default" : "national hispanic cultural center",
+    "queryStrings": {"Place" : "National Hispanic Cultural Center",
                      "Wikipedia" : "National_Hispanic_Cultural_Center"},
     "loc": {
         "lat": 35.068604,
@@ -34,7 +34,7 @@
     "id": "alvarado-transportation-center",
     "title": "Alvarado Transportation Center",
     "keywords": ["transportation", "bus", "rail runner", "transit"],
-    "queryStrings": {"default" : "alvarado transportation center",
+    "queryStrings": {"Place" : "Alvarado Transportation Center",
                       "Wikipedia" : "Alvarado_Transportation_Center"},
     "loc": {
         "lat": 35.082965,
@@ -45,7 +45,7 @@
     "id": "rio-grande-zoo",
     "title": "Rio Grande Zoo",
     "keywords": ["zoo", "science"],
-    "queryStrings": {"default" : "rio grande zoo",
+    "queryStrings": {"Place" : "Rio Grande Zoo",
                      "Wikipedia" : "Rio_Grande_Zoo"},
     "loc": {
         "lat": 35.077903,
@@ -56,7 +56,7 @@
     "id": "botanical-gardens",
     "title": "ABQ BioPark - Aquarium and Botanical Gardens",
     "keywords": ["biopark", "aquarium", "botanical", "garden", "science"],
-    "queryStrings": {"default" : "albuquerque aquarium and botanical garden",
+    "queryStrings": {"Place" : "ABQ BioPark - Aquarium and Botanical Gardens",
                       "Wikipedia" : "Albuquerque_Biological_Park"},
     "loc": {
         "lat": 35.095777,
@@ -67,7 +67,7 @@
     "id": "kimo-theater",
     "title": "KiMo Theater",
     "keywords": ["kimo", "theater", "landmark", "entertainment"],
-    "queryStrings": {"default" : "kimo theater albuqerque",
+    "queryStrings": {"Place" : "KiMo Theater",
                       "Wikipedia" : "KiMo_Theater"},
     "loc": {
         "lat": 35.084753,
