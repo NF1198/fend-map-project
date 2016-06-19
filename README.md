@@ -21,7 +21,7 @@ Developer Nanodegree [Neighborhood Map Project](https://review.udacity.com/?_ga=
 
 * Open a terminal window to the `src` or `dist` folder and execute:
 
-    python3 -m http.server
+    `python3 -m http.server`
 
 ## Code structure
 
