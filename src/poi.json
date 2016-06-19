@@ -2,7 +2,8 @@
     "id": "museum-of-geology-and-meteoritics",
     "title": "Museum of Geology and Meteoritics",
     "keywords": ["museum", "geology", "meteor", "space", "science", "unm"],
-    "queryStrings": {"Place" : "Museum of Geology and Meteoritics"},
+    "queryStrings": {"Place" : "Museum of Geology and Meteoritics",
+                    "Link" : "http://meteorite.unm.edu/meteorites/meteorite-museum/"},
     "loc": {
         "lat": 35.083114,
         "lon": -106.622702
@@ -13,6 +14,7 @@
     "title": "Tamarind Institue",
     "keywords": ["art", "studio", "gallery", "tamarind", "lithography", "science", "unm"],
     "queryStrings": {"Place" : "Tamarind Institue",
+                      "Link" : "http://tamarind.unm.edu/",
                       "Wikipedia" : "Tamarind_Institute"},
     "loc": {
         "lat": 35.080604,
@@ -20,10 +22,23 @@
     },
     "description": "lithography studio and workshop"
 }, {
+    "id": "abq-museum",
+    "title": "Albuqerue Museum",
+    "keywords": ["museum", "art", "history", "science"],
+    "queryStrings": {"Place" : "Albuqerue Museum",
+                      "Link" : "http://www.albuquerquemuseum.org/",
+                      "Wikipedia" : "Albuquerque_Museum_of_Art_and_History"},
+    "loc": {
+        "lat": 35.097599,
+        "lon": -106.668343
+    },
+    "description": "Dedicated to preserving the art of the American Southwest and the history of Albuquerque and the Middle Rio Grande Valley of New Mexico"
+}, {
     "id": "national-hispanic-culture-center",
     "title": "National Hispanic Cultural Center",
     "keywords": ["community", "center", "hispanic", "culture"],
     "queryStrings": {"Place" : "National Hispanic Cultural Center",
+                      "Link" : "http://www.nhccnm.org/",
                      "Wikipedia" : "National_Hispanic_Cultural_Center"},
     "loc": {
         "lat": 35.068604,
@@ -35,6 +50,7 @@
     "title": "Alvarado Transportation Center",
     "keywords": ["transportation", "bus", "rail runner", "transit"],
     "queryStrings": {"Place" : "Alvarado Transportation Center",
+                      "Link" : "http://www.visitalbuquerque.org/listings/Alvarado-Transportation-Center/3559/",
                       "Wikipedia" : "Alvarado_Transportation_Center"},
     "loc": {
         "lat": 35.082965,
@@ -46,6 +62,7 @@
     "title": "Rio Grande Zoo",
     "keywords": ["zoo", "science"],
     "queryStrings": {"Place" : "Rio Grande Zoo",
+                    "Link" : "https://www.cabq.gov/culturalservices/biopark/zoo",
                      "Wikipedia" : "Rio_Grande_Zoo"},
     "loc": {
         "lat": 35.077903,
@@ -57,6 +74,7 @@
     "title": "ABQ BioPark - Aquarium and Botanical Gardens",
     "keywords": ["biopark", "aquarium", "botanical", "garden", "science"],
     "queryStrings": {"Place" : "ABQ BioPark - Aquarium and Botanical Gardens",
+                    "Link" : "https://www.cabq.gov/culturalservices/biopark",
                       "Wikipedia" : "Albuquerque_Biological_Park"},
     "loc": {
         "lat": 35.095777,
@@ -68,10 +86,59 @@
     "title": "KiMo Theater",
     "keywords": ["kimo", "theater", "landmark", "entertainment"],
     "queryStrings": {"Place" : "KiMo Theater",
+                      "Link" : "http://www.kimotickets.com/",
                       "Wikipedia" : "KiMo_Theater"},
     "loc": {
         "lat": 35.084753,
         "lon": -106.652478
     },
     "description": "One of the city's best-known landmarks."
+}, {
+    "id": "national-museum-of-nuclear-science",
+    "title": "National Museum of Nuclear Science & History",
+    "keywords": ["museum", "science", "nuclear", "history"],
+    "queryStrings": {"Place" : "National Museum of Nuclear Science & History",
+                      "Link" : "http://www.nuclearmuseum.org/",
+                      "Wikipedia" : "National_Museum_of_Nuclear_Science_&_History"},
+    "loc": {
+        "lat": 35.065880,
+        "lon": -106.533849
+    },
+    "description": "The mission of the National Atomic Museum is to serve as America's resource for nuclear history and science."
+}, {
+    "id": "nm-museum-of-natural-history-and-science",
+    "title": "New Mexico Museum of Natural History and Science",
+    "keywords": ["museum", "science", "natrual", "history"],
+    "queryStrings": {"Place" : "New Mexico Museum of Natural History and Science",
+                      "Link" : "http://www.nmnaturalhistory.org/",
+                      "Wikipedia" : "New_Mexico_Museum_of_Natural_History_and_Science"},
+    "loc": {
+        "lat": 35.097891,
+        "lon": -106.665563
+    },
+    "description": "The New Mexico Museum of Natural History and Science preserves and interprets the distinctive natural and scientific heritage of our state through our extraordinary collections, research, exhibits and programs designed to ignite a passion for lifelong learning."
+}, {
+    "id": "rio-grande-nature-center",
+    "title": "Rio Grande Nature Center State Park",
+    "keywords": ["state", "park", "science", "nature", "hiking"],
+    "queryStrings": {"Place" : "Rio Grande Nature Center State Park",
+                      "Link" : "http://www.rgnc.org/",
+                      "Wikipedia" : "Rio_Grande_Nature_Center_State_Park"},
+    "loc": {
+        "lat": 35.130926,
+        "lon": -106.682729
+    },
+    "description": "Come enjoy nature and see animals including turtles, toads, lizards, bullsnakes, dragonflies, and beavers."
+}, {
+    "id": "petroglyph-national-monument",
+    "title": "Petroglyph National Monument",
+    "keywords": ["petroglyph", "national", "park", "history", "nature", "monument"],
+    "queryStrings": {"Place" : "Petroglyph National Monument",
+                      "Link" : "https://www.nps.gov/petr/index.htm",
+                      "Wikipedia" : "Petroglyph_National_Monument"},
+    "loc": {
+        "lat": 35.138658,
+        "lon": -106.711301
+    },
+    "description": "Petroglyph National Monument protects a variety of cultural and natural resources including five volcanic cones, hundreds of archeological sites and an estimated 24,000 images carved by Ancestral Pueblo peoples."
 }]

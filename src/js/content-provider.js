@@ -1,7 +1,5 @@
 (function(global) {
 
-    console.log("begin: content-provider.js");
-
     function ContentProvider() {
 
         // Fetch 3rd party content for the specified POI (if needed)
@@ -115,7 +113,13 @@
     TitleProvider.prototype.constructor = TitleProvider;
     TitleProvider.prototype.ContentID = "Place";
     TitleProvider.prototype.fetch = function(poi) {
-        var result = `<span>${poi.title}</span>`
+
+        var link = poi.queryStrings["Link"];
+        var place = poi.queryStrings["Place"];
+
+        // if the POI has a link defined, use the link, otherwise use the title
+        var result = (link) ? `<a href="${link}">${place}</a>` : `<span>${poi.title}</span>`;
+
         var content = poi.thirdPartyContent();
         content[TitleProvider.prototype.ContentID] = {
             type: ContentProvider.prototype.contentType.DATA,
@@ -130,7 +134,5 @@
 
     // Export the ContentProvider to the global namespace
     global.ContentProvider = new ContentProvider();
-
-    console.log("end: content-provider.js")
 
 })(this);

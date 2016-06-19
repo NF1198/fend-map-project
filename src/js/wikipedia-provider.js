@@ -1,9 +1,11 @@
 (function(global, $) {
-    console.log("begin: wikipedia-provider.js");
 
-    var remoteUrlWithOrigin = "https://en.wikipedia.org/w/api.php";
-    var remoteUrlWithOrigin = "https://en.wikipedia.org/w/api.php";
-    // ?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=Albuquerque%2C_New_Mexico"
+    function truncate(string, len) {
+        if (string.length > len)
+            return string.substring(0, len) + '...';
+        else
+            return string;
+    };
 
     var ContentProviderProto = Object.getPrototypeOf(global.ContentProvider);
 
@@ -27,6 +29,7 @@
         // prepare the query for insertion in the URL
         var contentQuery = encodeURIComponent(poi.queryStrings[WikipediaProvider.prototype.ContentID]);
         var queryURL = `https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=${contentQuery}&callback=?`;
+        var linkURL = `https://en.wikipedia.org/wiki/${contentQuery}`;
 
         // Submit ajax request to server and update content accordingly
         // Encoding URL directly to avoid CORS issues
@@ -42,10 +45,11 @@
                     var extract = page.extract;
                     break;
                 }
+                extract = truncate(extract, 350);
                 var content = poi.thirdPartyContent();
                 content[WikipediaProvider.prototype.ContentID] = {
                     type: ContentProviderProto.contentType.DATA,
-                    value: extract
+                    value: `<p>${extract} <a href="${linkURL}" target="_blank">read more...</a></p>`
                 };
                 poi.thirdPartyContent(content);
             },
@@ -59,23 +63,10 @@
                 poi.thirdPartyContent(content);
             }
         });
-        // $.ajax({
-        //     type: "GET",
-        //     url: "http://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=0&page=Jimi_Hendrix&callback=?",
-        //     contentType: "application/json; charset=utf-8",
-        //     async: false,
-        //     dataType: "json",
-        //     success: function(data, textStatus, jqXHR) {
-        //         console.log(data);
-        //     },
-        //     error: function(errorMessage) {}
-        // });
 
         return '<span>loading content...<span>';
     };
 
     ContentProviderProto.registerProvider(WikipediaProvider.prototype.ContentID, new WikipediaProvider());
-
-    console.log("end: wikipedia-provider.js");
 
 })(this, jQuery);
