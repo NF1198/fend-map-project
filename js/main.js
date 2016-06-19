@@ -3,7 +3,7 @@ var app = (function(ko, google, map) {
     var $navTrigger = document.getElementById('nav-trigger');
     var $map = document.getElementById('map');
 
-    // Open the search panel by default on desktop
+    // Ensure search panel open-by-default on desktop
     if (window.matchMedia("(min-width: 630px)").matches) {
         $navTrigger.checked = true;
     }
@@ -215,6 +215,8 @@ var app = (function(ko, google, map) {
             animateMarker(newSelectionID);
             if (newSelection) {
                 centerMap(poi.loc);
+                var marker = getMapMarkerFor(poi);
+                getInfoWindowFor(poi).open(map, marker);
             }
             if (!window.matchMedia("(min-width: 630px)").matches) {
                 $navTrigger.checked = false;
