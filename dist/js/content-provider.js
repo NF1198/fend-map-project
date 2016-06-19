@@ -118,7 +118,7 @@
         var place = poi.queryStrings["Place"];
 
         // if the POI has a link defined, use the link, otherwise use the title
-        var result = (link) ? `<a href="${link}">${place}</a>` : `<span>${poi.title}</span>`;
+        var result = (link) ? `<a href="${link}" target="_blank">${place}</a>` : `<span>${poi.title}</span>`;
 
         var content = poi.thirdPartyContent();
         content[TitleProvider.prototype.ContentID] = {
