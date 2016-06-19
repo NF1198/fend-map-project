@@ -24,36 +24,24 @@
         };
         poi.thirdPartyContent(content);
 
+        // prepare the query for insertion in the URL
+        var contentQuery = encodeURIComponent(poi.queryStrings[WikipediaProvider.prototype.ContentID]);
+        var queryURL = `https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=${contentQuery}&callback=?`;
+
         // Submit ajax request to server and update content accordingly
+        // Encoding URL directly to avoid CORS issues
         $.ajax({
-            dataType: 'json',
-            url: remoteUrlWithOrigin,
-            xhrFields: {
-                withCredentials: true
-            },
-            data: {
-                'format': 'json',
-                'action': 'query',
-                'prop': 'extracts',
-                'exintro': '',
-                'explaintext': '',
-                'titles': poi.queryStrings[WikipediaProvider.prototype.ContentID]
-            },
             type: 'GET',
-            headers: {
-                'Origin': 'http://nf1198.github.io',
-                'Api-User-Agent': 'ExploreAlbuquerque/1.0 (nickfolse@gmail.com)'
-            },
-            success: function(data) {
-
+            url: queryURL,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(data, textStatus, jqXHR) {
                 var extract = "...";
-                var response = $.parseJSON(data);
-                for (pageId in response.query.pages) {
-                  var page = response.query.pages[pageId];
-                  var extract = page.extract;
-                  break;
+                for (pageId in data.query.pages) {
+                    var page = data.query.pages[pageId];
+                    var extract = page.extract;
+                    break;
                 }
-
                 var content = poi.thirdPartyContent();
                 content[WikipediaProvider.prototype.ContentID] = {
                     type: ContentProviderProto.contentType.DATA,
@@ -71,6 +59,18 @@
                 poi.thirdPartyContent(content);
             }
         });
+        // $.ajax({
+        //     type: "GET",
+        //     url: "http://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=0&page=Jimi_Hendrix&callback=?",
+        //     contentType: "application/json; charset=utf-8",
+        //     async: false,
+        //     dataType: "json",
+        //     success: function(data, textStatus, jqXHR) {
+        //         console.log(data);
+        //     },
+        //     error: function(errorMessage) {}
+        // });
+
         return '<span>loading content...<span>';
     };
 

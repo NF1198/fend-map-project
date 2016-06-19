@@ -33,6 +33,7 @@ html, body {
 
 .info-content {
   margin-bottom: 1em;
+  text-align: justify;
 }
 
 /* general */

@@ -30,14 +30,18 @@
 
                 // check if poiContent needs updating
                 var providerContent = poiContent[providerId];
-                var needsUpdate = (!providerContent || providerContent.type === ContentProvider.prototype.contentType.EMPTY);
-                var innerContent;
-                if (needsUpdate) {
-                    innerContent = provider.fetch(poi);
-                } else {
-                    innerContent = providerContent.value;
+                var poiMatchingQuery = poi.queryStrings[providerId];
+                // only query if poi has a query string matching the providerID
+                if (poiMatchingQuery) {
+                    var needsUpdate = (!providerContent || providerContent.type === ContentProvider.prototype.contentType.EMPTY);
+                    var innerContent;
+                    if (needsUpdate) {
+                        innerContent = provider.fetch(poi);
+                    } else {
+                        innerContent = providerContent.value;
+                    }
+                    content[providerId] = innerContent;
                 }
-                content[providerId] = innerContent;
             }
             return content;
         }
@@ -51,9 +55,14 @@
             result += `<!-- ko with: getPOIbyID('${poiID}') -->`;
             result += `<!-- ko with: thirdPartyContent -->`;
             for (id in queryResult) {
-                var queryContent = queryResult[id];
-                result += `<h3 class='info-heading'>${id}</h3>
+                var poiMatchingQuery = poi.queryStrings[id];
+                // only add an HTML element for the provider result if the POI
+                // has a matching query string
+                if (poiMatchingQuery) {
+                    var queryContent = queryResult[id];
+                    result += `<h3 class='info-heading'>${id}</h3>
 <div class='info-content' data-bind="html: ${id}.value">${queryContent}</div>`;
+                }
             }
             result += "<!-- /ko -->";
             result += "<!-- /ko --><!-- /ko -->";
