@@ -73,6 +73,7 @@ var app = (function(ko, google, map) {
 
         function clickListenerFor(poi, marker) {
             return function() {
+                animateMarker(poi.id);
                 getInfoWindowFor(poi).open(map, marker);
             };
         }
