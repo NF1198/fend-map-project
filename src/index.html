@@ -12,9 +12,62 @@
     <link href="css/map-icons.css" rel="stylesheet" />
     <!-- /build -->
     <title>Explore Albuquerque</title>
-    <script src="poi.json"></script>
-    <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+    <script>
+        // utility script to manage asynchronous script loading with dependencies
+        var _pendingModules = [];
+        var _errorModules = [];
+
+        function loadModules() {
+            for (var idx = 0; idx < _pendingModules.length; idx++) {
+                var depsLoaded = true;
+                var depDef = _pendingModules[idx];
+                for (var jdx = 0; depDef.callback && depsLoaded && jdx < depDef.dependencies.length; jdx++) {
+                    var d = depDef.dependencies[jdx];
+                    var evaldep;
+                    try {
+                        evaldep = eval(d);
+                    } catch (e) {
+                        depsLoaded = false;
+                    }
+                }
+                if (depsLoaded) {
+                    if (depDef.callback) {
+                        depDef.callback();
+                        depDef.callback = null;
+                    }
+                }
+            }
+        }
+
+        function moduleLoaded() {
+            loadModules();
+        }
+
+        function registerDependency(depList, cb) {
+            _pendingModules.push({
+                dependencies: depList,
+                callback: cb
+            });
+            loadModules();
+        }
+
+        var _errorTimeoutID;
+
+        function moduleError(module) {
+            _errorModules.push(module.src);
+            if (_errorTimeoutID) {
+                window.clearTimeout(_errorTimeoutID);
+            }
+            _errorTimeoutID = window.setTimeout(function(event) {
+                alert("Error loading script(s): \n\n" + _errorModules.join(" \n\n"));
+                _errorTimeoutID = null;
+            }, 500);
+        }
+    </script>
+    <!-- eager load POIs -->
+    <script async src="poi.json"></script>
+    <script async onload="moduleLoaded()" onerror="moduleError(this)" src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
+    <script async onload="moduleLoaded()" onerror="moduleError(this)" src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
 </head>
 
 <body>
@@ -52,15 +105,13 @@
             });
         }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAxHuZPgNX7EEdNhtiAzzgsWbYmjs4H6k&callback=initMap"></script>
+    <script async onload="moduleLoaded()" onerror="moduleError(this)" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAxHuZPgNX7EEdNhtiAzzgsWbYmjs4H6k&callback=initMap"></script>
     <!-- Ref http://map-icons.com/ (MIT License) -->
-    <!-- build:js js/map-icons.min.js -->
-    <script src="js/map-icons.js"></script>
-    <!-- /build -->
     <!-- build:js js/app.min.js -->
-    <script defer id="content-providers-js" src="js/content-provider.js"></script>
-    <script defer id="wikipedia-provider-js" src="js/wikipedia-provider.js"></script>
-    <script defer id="main-js" src="js/main.js"></script>
+    <script src="js/map-icons.js"></script>
+    <script src="js/content-provider.js"></script>
+    <script src="js/wikipedia-provider.js"></script>
+    <script src="js/main.js"></script>
     <!-- /build -->
 </body>
 

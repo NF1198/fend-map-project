@@ -45,8 +45,7 @@ module.exports = function(grunt) {
             options: {},
             build: {
                 files: {
-                    'dist/js/app.min.js': ['src/js/content-provider.js', 'src/js/wikipedia-provider.js', 'src/js/main.js'],
-                    'dist/js/map-icons.min.js': 'src/js/map-icons.js'
+                    'dist/js/app.min.js': ['src/js/map-icons.js', 'src/js/content-provider.js', 'src/js/wikipedia-provider.js', 'src/js/main.js']
                 },
                 options: {
                     compress: {
@@ -65,6 +64,7 @@ module.exports = function(grunt) {
         htmlmin: {
             build: {
                 options: {
+                    minifyJS: true,
                     removeComments: true,
                     collapseWhitespace: true
                 },

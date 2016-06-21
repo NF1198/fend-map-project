@@ -47,10 +47,10 @@
     }
 }, {
     "id": "abq-museum",
-    "title": "Albuqerue Museum",
+    "title": "Albuquerque Museum",
     "keywords": ["museum", "art", "history", "science"],
     "queryStrings": {
-        "Place": "Albuqerue Museum",
+        "Place": "Albuquerque Museum",
         "Link": "http://www.albuquerquemuseum.org/",
         "Wikipedia": "Albuquerque_Museum_of_Art_and_History"
     },

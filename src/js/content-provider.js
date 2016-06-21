@@ -2,22 +2,32 @@
 
 (function(global) {
 
+    console.log("loading content-provider");
+
+    /**
+     * @description Service definition for an infoWindow content provider
+     * @constructor
+     */
     function ContentProvider() {
 
-        // Fetch 3rd party content for the specified POI (if needed)
-        // Content is stored in the poi.thirdPartyContent field, which is a ko.observable().
-        // the content data is stored in the following object format:
-        //  thirdPartyContent:
-        //  {
-        //    `contentProviderID`: {
-        //         type: <EMPTY, ERRROR, DATA>, (see constant definition below)
-        //         value: "" (a string with content, or empty)
-        //    }
-        //    `otherContentProviderID` : {...}
-        //    `otherContentProviderID` : {...}
-        //  }
-        // return value is an object with keys matching providerId and values
-        //        equal to the known (or initial) content for the provider
+        /**
+         * @description Fetch 3rd party content for the specified POI (if needed)
+         * Content is stored in the poi.thirdPartyContent field, which is a ko.observable().
+         * the content data is stored in the following object format:
+         *  thirdPartyContent:
+         *  {
+         *    `contentProviderID`: {
+         *         type: <EMPTY, ERRROR, DATA>, (see constant definition below)
+         *         value: "" (a string with content, or empty)
+         *    }
+         *    `otherContentProviderID` : {...}
+         *    `otherContentProviderID` : {...}
+         *  }
+         * return value is an object with keys matching providerId and values
+         *        equal to the known (or initial) content for the provider
+         * @param {object} poi
+         * @returns {string} (HTML)
+         */
         this.fetchContentFor = function(poi) {
             var content = {};
             var poiContent = poi.thirdPartyContent();
@@ -46,8 +56,12 @@
             return content;
         }
 
-        // Fetch DOM element that represents the third party content for the specified
-        // POI. The HTML may include ko bindings.
+        /**
+         * @description Fetch DOM element that represents the third party content for the specified
+         *              POI. The HTML may include ko bindings.
+         * @param {object} poi
+         * @returns {node} (HTML)
+         */
         this.fetchNodeContentFor = function(poi) {
             var queryResult = this.fetchContentFor(poi);
             var poiID = poi.id;
@@ -77,12 +91,14 @@
     ContentProvider.prototype.contentType.ERROR = "ERROR";
     ContentProvider.prototype.contentType.DATA = "DATA";
 
-    // This is the magic function. Provider implementations should
-    // return default content for the poi and update the thirdPartyContent
-    // field with appropriate content. Updates may be done asynchronously
-    // via an ajax request.
-    // poi is the POI data structure
-    // return value is a string with initial content
+    /**
+     * @description This is the magic function. Provider implementations should\
+     *              return default content for the poi and update the thirdPartyContent
+     *              field with appropriate content. Updates may be done asynchronously
+     *              via an ajax request.
+     * @param {object} poi
+     * @returns {string} Initial content for provider
+     */
     ContentProvider.prototype.fetch = function(poi) {
         return ""
     };
@@ -106,7 +122,11 @@
         }
     };
 
-    // Create a default provider that shows the POI title
+    /**
+     * @description A default implementation of the ContentProvider which renders the
+     *              POI title in the infoWindow
+     * @constructor
+     */
     var TitleProvider = function() {
         ContentProvider.call(this);
     };
