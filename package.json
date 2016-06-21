@@ -1,0 +1,32 @@
+{
+  "name": "fend-neighborhood-map-project",
+  "version": "1.0.0",
+  "description": "Project submission for Udacity Front-End Web Developer Neighborhood Map Project",
+  "main": "src/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NF1198/fend-map-project.git"
+  },
+  "author": "Nicholas Folse",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NF1198/fend-map-project/issues"
+  },
+  "homepage": "https://github.com/NF1198/fend-map-project#readme",
+  "dependencies": {
+    "uglify-js": "git+https://github.com/mishoo/UglifyJS2.git#harmony"
+  },
+  "devDependencies": {
+    "grunt": "1.0.1",
+    "grunt-contrib-clean": "1.0.0",
+    "grunt-contrib-copy": "1.0.0",
+    "grunt-contrib-cssmin": "1.0.1",
+    "grunt-contrib-htmlmin": "1.4.0",
+    "grunt-contrib-uglify": "1.0.1",
+    "grunt-processhtml": "0.4.0",
+    "load-grunt-tasks": "3.5.0"
+  }
+}

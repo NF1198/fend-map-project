@@ -1,3 +1,5 @@
+"use strict";
+
 (function(global) {
 
     function ContentProvider() {
@@ -52,7 +54,7 @@
             var result = "";
             result += `<!-- ko with: getPOIbyID('${poiID}') -->`;
             result += `<!-- ko with: thirdPartyContent -->`;
-            for (id in queryResult) {
+            for (var id in queryResult) {
                 var poiMatchingQuery = poi.queryStrings[id];
                 // only add an HTML element for the provider result if the POI
                 // has a matching query string

@@ -17,6 +17,15 @@ Developer Nanodegree [Neighborhood Map Project](https://review.udacity.com/?_ga=
 2. `src` contains the development branch (`git push origin master`)
 3. `dist` contains the gh-pages branch (`git subtree push --prefix dist origin gh-pages`)
 
+### npm & grunt
+
+This project uses Grunt to build an optimized distribution.
+
+In the project root directory, execute `npm install` to install dependencies
+
+`grunt clean` will clear the contents of the `dist` folder
+`grunt` will rebuild the distribution
+
 ## Testing the site locally
 
 * Open a terminal window to the `src` or `dist` folder and execute:
@@ -37,3 +46,7 @@ Several libraries and APIs are used: Knockout.js, Google Maps Javascript API, jQ
 ### ContentProvider
 
 Additional content providers may be added to the application by linking to the appropriate .js file in `index.html`. Reference the wikipedia provider or `TitleProvider` defined within `content-provider.js` for more information. Content providers typically reference the `poi.queryStrings` property of a POI. The content provider will render only if a matching id is found within the `poi.queryStrings` data structure for a given POI.
+
+## References & Libraries
+
+* This project uses the [map-icons](http://map-icons.com/) library (MIT License). Thank you Scott de Jonge!

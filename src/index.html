@@ -4,9 +4,17 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- build:css css/styles.min.css -->
     <link href="css/main.css" rel="stylesheet" />
     <link href="css/menu.css" rel="stylesheet" />
+    <!-- /build -->
+    <!-- build:css css/map-icons.min.css -->
+    <link href="css/map-icons.css" rel="stylesheet" />
+    <!-- /build -->
     <title>Explore Albuquerque</title>
+    <script src="poi.json"></script>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
 </head>
 
 <body>
@@ -37,19 +45,24 @@
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
                 center: {
-                    lat: 35.0830694,
-                    lng: -106.632821
+                    lat: 35.130716,
+                    lng: -106.591750
                 },
-                zoom: 14
+                zoom: 12
             });
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAxHuZPgNX7EEdNhtiAzzgsWbYmjs4H6k&callback=initMap"></script>
-    <script defer src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+    <!-- Ref http://map-icons.com/ (MIT License) -->
+    <!-- Note: Not using minified version of map-icons.js because it causes rendering problems -->
+    <!-- build:js js/map-icons.min.js -->
+    <script src="js/map-icons.js"></script>
+    <!-- /build -->
+    <!-- build:js js/app.min.js -->
     <script defer id="content-providers-js" src="js/content-provider.js"></script>
     <script defer id="wikipedia-provider-js" src="js/wikipedia-provider.js"></script>
     <script defer id="main-js" src="js/main.js"></script>
+    <!-- /build -->
 </body>
 
 </html>
