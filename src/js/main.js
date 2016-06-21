@@ -140,6 +140,7 @@ var app = (function(ko, google, map) {
     function centerMap(loc) {
         var latlng = new google.maps.LatLng(loc.lat, loc.lng);
         map.panTo(latlng);
+        map.setZoom(14);
     }
 
     // enable all POIs in the poiList, otherwise disable
