@@ -11,8 +11,6 @@ module.exports = function(grunt) {
             build: {
                 files: {
                     'dist/poi.json': 'src/poi.json',
-                    // TODO: fix minimized version of map-icons.js; Use un-minified version until fixed;
-                    //'dist/js/map-icons.js' : 'src/js/map-icons.js',
                     'dist/fonts/map-icons.eot' : 'src/fonts/map-icons.eot',
                     'dist/fonts/map-icons.svg' : 'src/fonts/map-icons.svg',
                     'dist/fonts/map-icons.ttf' : 'src/fonts/map-icons.ttf',
@@ -71,7 +69,8 @@ module.exports = function(grunt) {
                     collapseWhitespace: true
                 },
                 files: {
-                    'dist/index.html': 'dist/index.html', // 'destination': 'source'
+                    // 'destination': 'source'
+                    'dist/index.html': 'dist/index.html',
                 }
             },
         },
